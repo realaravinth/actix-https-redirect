@@ -1,0 +1,22 @@
+[package]
+name = "actix-https-redirect"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4.0.0-beta.8"
+actix-service = "2.0"
+futures = "*"
+actix-cors = "0.6.0-beta.2"
+actix-http = "3.0.0-beta.8"
+actix-identity = "0.4.0-beta.2"
+
+[dev-dependencies]
+actix-rt = "2"
+actix-web = { version = "4.0.0-beta.8", features = ["rustls"] }
+# I'm bypassing cert verificaiton in tests with "dangerous_configuration"
+# feature from rustls
+rustls = { version  = "0.19.1", features = ["dangerous_configuration"]}
+reqwest = { version = "0.11.4", features = ["rustls-tls"]}
